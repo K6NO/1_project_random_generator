@@ -64,7 +64,7 @@ var interval;
 /**
  * Method calls getRandomQuote, displays HTML, calls randomizeBackgroundColor and randomizeTagColor
  */
-function printQuote(){
+const printQuote = () => {
 
     var quoteToDisplay = getRandomQuote();
     var HTMLmessage = '';
@@ -84,7 +84,7 @@ function printQuote(){
  * reaches the size of the quotes array all its content is deleted.
  * @returns {{quote, source, tags}|*}
  */
-function getRandomQuote(){
+const getRandomQuote = () => {
 
     if (quotesDisplayed.length === quotes.length) {
         quotesDisplayed = [];
@@ -106,7 +106,7 @@ function getRandomQuote(){
  * returns a random hexadecimal value
  * @returns {string}
  */
-function getRandomColor(){
+const getRandomColor = () => {
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i=0; i<6; i++){
@@ -118,21 +118,17 @@ function getRandomColor(){
 /**
  * sets the background color of the body element (with id='background')
  */
-function randomizeBackgroundColor(){
-    document.getElementById('background').style.background = getRandomColor();
-}
+const randomizeBackgroundColor = () => document.getElementById('background').style.background = getRandomColor();
+
 /**
  * randomizes the color of the tags
  */
-function randomizeTagColor(){
-    document.getElementById('tag').style.background = getRandomColor();
-}
+const randomizeTagColor = () => document.getElementById('tag').style.background = getRandomColor();
+
 
 /**
  * Automatically refreshes the quote in every 30 seconds. Called in <body onload="">
  */
-function refreshQuoteAutomatically(){
-        interval = setInterval(printQuote, 30000);
-}
+const refreshQuoteAutomatically = () => interval = setInterval(printQuote, 30000);
 
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
