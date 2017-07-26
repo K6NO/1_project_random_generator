@@ -1,7 +1,7 @@
 # Treehouse Random Quote Generator Project
 
-Generate random quotes
+HTML / CSS / JS
 
-Avoid displaying the same quote twice until all are displayed
-
-Change style with quotes changing
+Simple random quote generator
+Change style when quotes are changing
+Refreshes automatically every 30 secs
