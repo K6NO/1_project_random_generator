@@ -1,4 +1,5 @@
-# Treehouse Random Quote Generator Project
+# Treehouse Full Stack Javascript Techdegree
+### Project 1 - Random Quote Generator Project
 
 HTML / CSS / JS
 
