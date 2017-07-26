@@ -24,7 +24,6 @@ var quotes = [
         source: "Jim Rohn",
         tags: ["success"]
     },
-
     {
         quote: "Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.",
         source: "Albert Einstein",
@@ -54,7 +53,7 @@ var quotes = [
         quote: "Success is walking from failure to failure with no loss of enthusiasm.",
         source: "Winston Churchill",
         tags: ["success", "old but gold"]
-    },
+    }
 ];
 
 var quotesDisplayed = [];
@@ -64,7 +63,7 @@ var interval;
 /**
  * Method calls getRandomQuote, displays HTML, calls randomizeBackgroundColor and randomizeTagColor
  */
-const printQuote = () => {
+const printQuote = function () {
 
     var quoteToDisplay = getRandomQuote();
     var HTMLmessage = '';
@@ -84,36 +83,34 @@ const printQuote = () => {
  * reaches the size of the quotes array all its content is deleted.
  * @returns {{quote, source, tags}|*}
  */
-const getRandomQuote = () => {
+const getRandomQuote = function() {
 
     if (quotesDisplayed.length === quotes.length) {
         quotesDisplayed = [];
     }
 
-    var randomQuoteIndex = Math.floor(Math.random() * quotes.length);
-    console.log('Random quote generated: ' + randomQuoteIndex + ". " + quotes[randomQuoteIndex].quote);
-
-    if (quotesDisplayed.indexOf(randomQuoteIndex) === -1) {
-        quotesDisplayed.push(randomQuoteIndex);
-        console.log('Index of the quotes displayed so far: ' + quotesDisplayed);
-        return quotes[randomQuoteIndex];
-    } else {
-        console.log('This quote has already been displayed. Click for another!');
+    while (quotesDisplayed.length <= quotes.length) {
+        let randomQuoteIndex = Math.floor(Math.random() * quotes.length);
+        if(quotesDisplayed.indexOf(randomQuoteIndex) === -1) {
+            quotesDisplayed.push(randomQuoteIndex);
+            console.log('Index of the quotes displayed so far: ' + quotesDisplayed);
+            return quotes[randomQuoteIndex];
+        }
     }
-}
+};
 
 /**
  * returns a random hexadecimal value
  * @returns {string}
  */
-const getRandomColor = () => {
+const getRandomColor = function() {
     var letters = '0123456789ABCDEF';
     var color = '#';
     for (var i=0; i<6; i++){
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-}
+};
 
 /**
  * sets the background color of the body element (with id='background')
